@@ -99,11 +99,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                     String name = reader.nextName();
 
-                    if (name.equals("name")) {
+                    if ("name".equals(name)) {
                         String rawName = reader.nextString();
                         foodName = rawName.substring(0, 1).toUpperCase() + rawName.substring(1);
                     }
-                    else if (name.equals("expiry")) {
+                    else if ("expiry".equals(name)) {
                         readExpiry(db, reader, foodName);
                     }
                     else {
@@ -134,10 +134,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (reader.hasNext()) {
                 String expName = reader.nextName();
 
-                if (expName.equals("type")) {
+                if ("type".equals(expName)) {
                     String type = reader.nextString();
 
-                    if (type.equals("refContainer")) {
+                    if ("refContainer".equals(type)) {
                         invName += " (container) ";
                     }
                     else if (!(type.equals("default")) && !(type.equals("frozen"))) {
@@ -149,13 +149,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     long expDays = reader.nextLong();
                     long shelfLife = expDays * DateUtils.DAY_IN_MILLIS;
                     if (expDays > 0) {
-                        if (expName.equals("refrigerator")) {
+                        if ("refrigerator".equals(expName)) {
                             invName += " (refrigerator) ";
                         }
-                        else if (expName.equals("pantry")) {
+                        else if ("pantry".equals(expName)) {
                             invName += " (pantry) ";
                         }
-                        else if (expName.equals("freezer")) {
+                        else if ("freezer".equals(expName)) {
                             invName += " (freezer) ";
                         }
 

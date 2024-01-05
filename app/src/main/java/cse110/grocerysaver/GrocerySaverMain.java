@@ -137,7 +137,7 @@ public class GrocerySaverMain extends AppCompatActivity implements BottomNavigat
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
         Log.d("debug","change happened");
         // in the case when notification check box is touched
-        if (s.equals("notification_onoff_preference")) {
+        if ("notification_onoff_preference".equals(s)) {
             Log.d("debug","notification check box is touched");
             if(sharedPreferences.getBoolean(s,false)) {
                 Log.d("debug","notification is turned on");
@@ -149,7 +149,7 @@ public class GrocerySaverMain extends AppCompatActivity implements BottomNavigat
             }
         }
         // the case notification period is changed
-        else if (s.equals("notify_period_preference")) {
+        else if ("notify_period_preference".equals(s)) {
             Log.d("debug","notification period is touched");
             Log.d("debug","new period is "+Integer.parseInt(sharedPreferences.getString(s,"")));
             if(sharedPreferences.getBoolean("notification_onoff_preference",false)) {
@@ -158,7 +158,7 @@ public class GrocerySaverMain extends AppCompatActivity implements BottomNavigat
             }
         }
         // the case notification time is changed
-        else if (s.equals("notify_time_preference")) {
+        else if ("notify_time_preference".equals(s)) {
             Log.d("debug","notification time is touched");
             Log.d("debug","new time is "+Integer.parseInt(sharedPreferences.getString(s,"")));
             if(sharedPreferences.getBoolean("notification_onoff_preference",false)){
@@ -166,7 +166,7 @@ public class GrocerySaverMain extends AppCompatActivity implements BottomNavigat
                 startService(new Intent(this, SetRepeatAlarmService.class));
             }
         }
-        else if (s.equals("email_onoff_preference")) {
+        else if ("email_onoff_preference".equals(s)) {
             Log.d("debug","email notification check box is touched");
             if (sharedPreferences.getBoolean("email_onoff_preference",false)) {
                 Log.d("debug","email notification is turned on");
@@ -178,7 +178,7 @@ public class GrocerySaverMain extends AppCompatActivity implements BottomNavigat
                 Log.d("debug","email notification is turned off");
             }
         }
-        else if (s.equals("email_address_preference")){
+        else if ("email_address_preference".equals(s)){
             Log.d("debug","email address is changed");
             Log.d("debug","new email address is "+sharedPreferences.getString(s,""));
             if(sharedPreferences.getString("email_address_preference","").equals("")){
